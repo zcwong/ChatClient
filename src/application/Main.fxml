@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="506.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <TextArea fx:id="myMessage" editable="false" layoutX="10.0" prefHeight="355.0" prefWidth="535.0" style="-fx-background-insets: 0; -fx-padding: 0;" stylesheets="@application.css" AnchorPane.bottomAnchor="121.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="324.0" AnchorPane.topAnchor="30.0" />
+      <Button layoutX="642.0" layoutY="427.0" mnemonicParsing="false" onAction="#getStatus" prefHeight="39.0" prefWidth="73.0" text="Status" AnchorPane.bottomAnchor="39.80000000000001" AnchorPane.rightAnchor="173.39999999999998">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="499.0" layoutY="418.0" mnemonicParsing="false" onAction="#send" prefHeight="48.0" prefWidth="66.0" text="Send" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="324.0">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button layoutX="772.0" layoutY="427.0" mnemonicParsing="false" onAction="#clear" prefHeight="39.0" prefWidth="73.0" text="Clear" AnchorPane.bottomAnchor="39.80000000000001" AnchorPane.rightAnchor="43.39999999999998">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Separator layoutX="592.0" layoutY="7.0" orientation="VERTICAL" prefHeight="491.0" prefWidth="5.0" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="291.0" AnchorPane.topAnchor="7.0" />
+      <Button layoutX="642.0" layoutY="352.0" mnemonicParsing="false" onAction="#getList" prefHeight="39.0" prefWidth="73.0" text="List" AnchorPane.bottomAnchor="114.80000000000001" AnchorPane.rightAnchor="173.39999999999998">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Label layoutX="619.0" layoutY="63.0" prefHeight="27.0" prefWidth="206.0" text="1. Enter username using" textAlignment="JUSTIFY" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="63.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="637.0" layoutY="84.0" prefHeight="27.0" prefWidth="191.0" text="IDEN &lt;username&gt;" textAlignment="JUSTIFY" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="84.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="619.0" layoutY="153.0" prefHeight="27.0" prefWidth="206.0" text="2. Broadcast message " textAlignment="JUSTIFY" AnchorPane.rightAnchor="64.0" AnchorPane.topAnchor="153.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="637.0" layoutY="174.0" prefHeight="27.0" prefWidth="191.0" text="HAIL &lt;message&gt;" textAlignment="JUSTIFY" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="174.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="616.0" layoutY="232.0" prefHeight="27.0" prefWidth="206.0" text="3. Send private message" textAlignment="JUSTIFY" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="232.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="633.0" layoutY="253.0" prefHeight="27.0" prefWidth="191.0" text="MESG &lt;user&gt; &lt;msg&gt;" textAlignment="JUSTIFY" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="253.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="642.0" layoutY="30.0" prefHeight="27.0" prefWidth="191.0" text="INSTRUCTIONS" textAlignment="CENTER" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Button layoutX="772.0" layoutY="352.0" mnemonicParsing="false" onAction="#quit" prefHeight="39.0" prefWidth="73.0" text="Quit" AnchorPane.bottomAnchor="115.0" AnchorPane.rightAnchor="44.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="711.0" layoutY="317.0" mnemonicParsing="false" onAction="#pm" prefHeight="26.0" prefWidth="66.0" text="PM" />
+      <TextArea fx:id="myReply" layoutX="30.0" layoutY="397.0" prefHeight="88.0" prefWidth="459.0" />
+   </children>
+</AnchorPane>
