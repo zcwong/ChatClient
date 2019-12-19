@@ -62,7 +62,7 @@ public class Main extends Application {
 		
 		
 		
-	/*	mainController.myReply.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		mainController.myReply.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 
 			 public void handle(KeyEvent ke) {
@@ -85,11 +85,11 @@ public class Main extends Application {
 		        		
 	
 
-		    			mainController.myMessage.setText(msgString);
-		    			mainController.myReply.setText("");
+		    			
+		    			//mainController.myReply.setText("");
 		            }
 		        }
-		    });	*/
+		    });	
 
 		
 		if(!client.start())

@@ -101,8 +101,8 @@ public class Client {
 		}
 		
 		
-		 
-		    
+		Main.mainController.myMessage.setWrapText(true);
+
 
     	new ListenNameList().start();
     	new ListenNameList().nameVeri();
@@ -170,7 +170,9 @@ public class Client {
 				//	System.out.println(msg);
 				}
 				catch(IOException e) {
-					Main.mainController.myMessage.setText("Server has closed the connection: " + e );
+					Main.mainController.fieldContent.append("Server has closed the connection: " + e );
+
+					Main.mainController.myMessage.setText(Main.mainController.fieldContent.toString());
 
 					break;
 				}
@@ -191,7 +193,6 @@ public class Client {
 					
 
 					
-					System.out.println(userList);
 					
 					
 					items = Arrays.asList(userList.split(",\\s*"));
@@ -240,6 +241,12 @@ public class Client {
 				 if (username.isEmpty()) {
 					 nameFlag=true;
 				 }
+				 
+				 if (username.length()>10) {
+					 nameFlag=true;
+				 }
+				 
+				 
 				 
 				 for  (int i=0; i<username.length(); i++) {
 				    	
@@ -300,7 +307,8 @@ public class Client {
 		
 	
 	}
-	
+
+
 	
 
 	
