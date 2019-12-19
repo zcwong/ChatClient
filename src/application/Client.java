@@ -2,6 +2,7 @@ package application;
 
 import application.MainController;
 import application.Main;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -102,6 +103,7 @@ public class Client {
 		
 		
 		Main.mainController.myMessage.setWrapText(true);
+		Main.mainController.myReply.setWrapText(true);
 
 
     	new ListenNameList().start();
@@ -160,9 +162,12 @@ public class Client {
 					// print the message
 					Main.mainController.fieldContent.append(msg + "\n");
 
-					Main.mainController.myMessage.setText(Main.mainController.fieldContent.toString());
 					
-				
+					
+					Platform.runLater(() ->{
+						Main.mainController.myMessage.setText(Main.mainController.fieldContent.toString());
+
+					});
 
 					
 
@@ -233,6 +238,8 @@ public class Client {
 					username = result.get();		  		    
 			 
 				}
+				
+				
 						
 				
 				 boolean nameFlag = false;

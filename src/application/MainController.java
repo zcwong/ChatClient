@@ -25,8 +25,8 @@ public class MainController {
 	@FXML
 	public TextArea myMessage =new TextArea();
 	@FXML
-	public TextField myReply = new TextField();
-	public Label instruction = new Label();
+	public TextArea myReply = new TextArea();
+;
 	public StringBuilder fieldContent = new StringBuilder(""); 
 
 
@@ -68,7 +68,11 @@ public class MainController {
 	
 	public void clear(ActionEvent event) {
 		fieldContent.setLength(0);
-		myMessage.setText(fieldContent.toString());
+		
+		Platform.runLater(() ->{
+			myMessage.setText(fieldContent.toString());
+
+		});
 		
 		
 
@@ -82,12 +86,46 @@ public class MainController {
 		
 		
 
+	/*	Platform.runLater(() ->{
+			final String msgString = myReply.getText();
+			if (msgString.isEmpty()) {
+				return;
+			}else {
+			Client.sendOverConnection(temp+msgString);
+			}
+			myReply.setText("");
+		});*/
+		
+		
 		Platform.runLater(() ->{
 			final String msgString = myReply.getText();
-			Client.sendOverConnection(temp+msgString);
+			if (msgString.isEmpty()) {
+				return;
+			}
+			
+			if(msgString.contains("\n")) {
+				String lines[] = myReply.getText().split("\\n");
+				for(int i = 0; i < lines.length; i++) {
+					Client.sendOverConnection("HAIL " + lines[i]);
+					//myMessage.setText(lines[i]);
 
+				}
+			}else {
+				Client.sendOverConnection("HAIL" +msgString);
+
+			}
+			myReply.setText("");
+			
 		});
 		
+		
+
+			
+			
+			
+			
+			
+		}
 		
 		
 		
@@ -104,7 +142,7 @@ public class MainController {
 		
    
 
-	}
+	
 	
 
 	
@@ -151,11 +189,17 @@ public class MainController {
 		Client.sendOverConnection("MESG "+user+" "+pm);
 		
 		fieldContent.append("PM sent to " + user +": " + pm+"\n");
-
-		Main.mainController.myMessage.setText(Main.mainController.fieldContent.toString());
+		
+		
 
 		
 
+		
+		Platform.runLater(() ->{
+			Main.mainController.myMessage.setText(Main.mainController.fieldContent.toString());
+
+		});
+		
 	
 
 

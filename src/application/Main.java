@@ -5,6 +5,7 @@ import application.Client;
 import java.util.Optional;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -62,34 +63,35 @@ public class Main extends Application {
 		
 		
 		
-		mainController.myReply.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		/*mainController.myReply.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 
 			 public void handle(KeyEvent ke) {
 		            if (ke.getCode() == KeyCode.ENTER) {
-		            	String msgString = (String)mainController.myReply.getText();
-		            	if(msgString.isEmpty()) {
-		    				return;
-		    				
-		    				
-		    				
-		    			}
-		            	
-		            	char[] chars = msgString.toCharArray();
+		            	Platform.runLater(() ->{
+		        			final String msgString = Main.mainController.myReply.getText();
+		        			if (msgString.isEmpty()) {
+		        				return;
+		        			}
+		        			
+		        			if(msgString.contains("\n")) {
+		        				String lines[] = Main.mainController.myReply.getText().split("\\n");
+		        				for(int i = 0; i < lines.length; i++) {
+		        					Client.sendOverConnection("HAIL " + lines[i]);
+		        					//myMessage.setText(lines[i]);
 
-		        		if(chars[0]=='M' && chars[1]=='E' && chars[2]=='S' && chars[3]=='G' && chars[4]==' ' ) {
-		        			Client.sendOverConnection(msgString);
-		        		}else {
-		        			Client.sendOverConnection("HAIL " + msgString);
-		        		}
+		        				}
+		        			}else {
+		        				Client.sendOverConnection("HAIL" +msgString);
+
+		        			}
+		        			Main.mainController.myReply.setText("");
+		        			
+		        		});
 		        		
-	
-
-		    			
-		    			//mainController.myReply.setText("");
 		            }
 		        }
-		    });	
+		    });	*/
 
 		
 		if(!client.start())
